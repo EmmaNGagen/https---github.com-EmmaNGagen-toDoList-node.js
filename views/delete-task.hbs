@@ -1,0 +1,18 @@
+<section class="task-section">
+  <section class="task-view-section">
+    <h2>Bekräfta borttagning</h2>
+
+    <p>
+      {{task}}
+      {{created}}
+    </p>
+
+  </section>
+  <section class="task-section-buttons">
+    <form action="/uppgift/{{id}}/ta-bort" method="post">
+      <input class="task-button" type="submit" value="Ta bort" />
+    </form>
+  </section>
+</section>
+
+<div class="space-div"></div>
