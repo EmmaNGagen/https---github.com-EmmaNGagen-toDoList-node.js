@@ -9,7 +9,6 @@ body {
 
 header {
   background: linear-gradient(to bottom, #363851, #202237, #171932);
-  height: 80px;
   text-align: center;
 }
 .header-section {
