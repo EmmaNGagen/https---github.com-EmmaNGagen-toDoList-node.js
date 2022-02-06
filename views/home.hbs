@@ -1,10 +1,8 @@
 <section class="list-section"> 
 <ul>
   {{#each todos}}
-    <li><a class="a-todo-text" href="/uppgift/{{id}}">
-    {{created}} {{task}} 
-      </a></li>
-      <!--  <p>Gjort: {{done}} </p>  --> 
+   
+ <li><a class="a-todo-text" href="/uppgift/{{id}}">  {{created}} {{task}} : {{done}}  </a> </li> 
   {{/each}}
 </section>
 
@@ -15,9 +13,18 @@
 </section>
 
 <section class="list-section-form"> 
+
 <form class="form-home" action="/home/ny" method="post">
   <input class="input-home" type="text" name="created" placeholder="Datum & tid" />
   <input class="input-home" type="text" name="task" placeholder="Uppgift" />
-  <input class="input-home-button" type="submit" value="Lägg till" />
+
+<label for="status-select">Status</label>
+  <select name="done" id="status-select">
+    <option value="">Välj status</option>
+    <option value="true">Färdig</option>
+    <option value="false">Ej färdig</option>
+  </select>
+
+<input class="input-home-button" type="submit" value="Lägg till" />
 </form>
 </section>

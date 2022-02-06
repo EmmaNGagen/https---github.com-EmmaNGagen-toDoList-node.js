@@ -3,38 +3,26 @@
     <h2>Redigera uppgift</h2>
     <p>
       {{task}}:
-      {{created}}
+      {{created}}. Status:
+      {{done}}
     </p>
   </section>
 
   <section class="task-section-form">
     <form class="form-edit" action="/uppgift/{{id}}/redigera" method="post">
-      <input
-        class="input-edit"
-        type="text"
-        name="task"
-        placeholder="Uppgift"
-        value="{{task}}"
-      />
-      <input
-        class="input-edit"
-        type="text"
-        name="created"
-        placeholder="Datum & tid"
-        value="{{created}}"
-      />
-
-      <!--  
-  <input
-    type="boolean"
-    name="done"
-    placeholder="Gjort eller ej gjort"
-    value="{{done}}"
-  />  -->
+      <input class="input-edit" type="text" name="task" placeholder="Uppgift" value="{{task}}" />
+      <input class="input-edit" type="text" name="created" placeholder="Datum & tid" value="{{created}}" />
+      <label for="status-select">Status</label>
+      <select name="done" id="status-select">
+        <option value="">Välj status</option>
+        <option value="true">Färdig</option>
+        <option value="false">Ej färdig</option>
+      </select>
 
       <input class="input-edit-button" type="submit" value="Redigera" />
     </form>
   </section>
+
 </section>
 
 <div class="space-div">

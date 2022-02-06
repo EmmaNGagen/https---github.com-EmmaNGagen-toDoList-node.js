@@ -16,10 +16,11 @@ app.engine(
 
 app.set("view engine", "hbs");
 app.use(express.static("public"));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); //Vad var detta?
 
 function getNewId(list) {
   let maxId = 0;
+
   for (const item of list) {
     if (item.id > maxId) {
       maxId = item.id;
@@ -44,13 +45,14 @@ app.post("/home/ny", (req, res) => {
     task: req.body.task,
     done: req.body.done,
   };
-
+  console.log(req.body.task);
+  console.log(req.body.done);
   todos.push(newTask);
 
   res.redirect("/uppgift/" + id);
 });
 
-app.get("/homec/:id", (req, res) => {
+app.get("/home/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const todo = todos.find((t) => t.id === id);
   res.render("single-task", todo);
@@ -75,7 +77,7 @@ app.post("/uppgift/:id/redigera", (req, res) => {
 
   todos[index].created = req.body.created;
   todos[index].task = req.body.task;
-  todos[index].done = req.body.task;
+  todos[index].done = req.body.done;
 
   res.redirect("/uppgift/" + id);
 });
@@ -96,6 +98,6 @@ app.post("/uppgift/:id/ta-bort", (req, res) => {
   res.redirect("/");
 });
 
-app.listen(8000, () => {
-  console.log("http://localhost:8000/");
+app.listen(8080, () => {
+  console.log("http://localhost:8080/");
 });
